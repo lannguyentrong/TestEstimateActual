@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0xuyCqviUFIN9+vqhz3OY7gZj/ho5scE0CHFeTeop+53guxP1DedDJpAc26+uZ7f19x5yYFFC/BUIv7qo7fz+A==",
+  "success": true,
+  "projectFilePath": "D:\\Fsoft\\FIN\\Source\\TestEstimateActual\\TestEstimateActual\\TestEstimateActual\\TestEstimateActual2\\TestEstimateActual2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lennovo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
