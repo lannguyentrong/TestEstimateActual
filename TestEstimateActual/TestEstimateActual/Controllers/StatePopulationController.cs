@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,6 @@ namespace TestEstimateActual.Controllers
             this._estimateRepository = estimateRepository;
         }
         
-
         [Route("/population")]
         [HttpGet]
         public IActionResult GetPopulationData(string state)
