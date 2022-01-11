@@ -58,3 +58,17 @@ D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\Tes
 D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\obj\Debug\net5.0\ref\TestEstimateActual.dll
 D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\obj\Debug\net5.0\TestEstimateActual.pdb
 D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\obj\Debug\net5.0\TestEstimateActual.genruntimeconfig.cache
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Extensions.Logging.File.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Sinks.Async.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Sinks.File.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Sinks.RollingFile.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.AspNetCore.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+D:\Fsoft\FIN\Source\TestEstimateActual\TestEstimateActual\TestEstimateActual\TestEstimateActual\bin\Debug\net5.0\Serilog.Sinks.Debug.dll

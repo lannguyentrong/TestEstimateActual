@@ -1,23 +1,30 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TestEstimateActual.IRepositories;
 using TestEstimateActual.Models;
+using Microsoft.AspNetCore.Http;
+using System.Web;
 
 namespace TestEstimateActual.Controllers
 {
     [ApiController]
     public class StatePopulationController : ControllerBase
     {
+        readonly ILogger<StatePopulationController> _log;
+
         private readonly IActualRepository _actualRepository;
         private readonly IEstimateRepository _estimateRepository;
 
-        public StatePopulationController(IActualRepository actualRepository, IEstimateRepository estimateRepository)
+        public StatePopulationController(
+            IActualRepository actualRepository, 
+            IEstimateRepository estimateRepository,
+            ILogger<StatePopulationController> log)
         {
+            _log = log;
+
             this._actualRepository = actualRepository;
             this._estimateRepository = estimateRepository;
         }
@@ -28,6 +35,9 @@ namespace TestEstimateActual.Controllers
         {
             try
             {
+                // Logging
+                this._ApiRequestLogging(HttpContext);
+                // Get data
                 List<Actual> actuals;
                 List<Estimate> estimates;
                 bool isNotFound;
@@ -65,6 +75,9 @@ namespace TestEstimateActual.Controllers
         {
             try
             {
+                // Logging
+                this._ApiRequestLogging(HttpContext);
+                // Get data
                 List<Actual> actuals;
                 List<Estimate> estimates;
                 bool isNotFound;
@@ -129,6 +142,12 @@ namespace TestEstimateActual.Controllers
             {
                 isNotFound = true;
             }
+        }
+
+        private void _ApiRequestLogging(HttpContext httpContext)
+        {
+            var path = HttpUtility.UrlDecode(HttpContext.Request.Path + HttpContext.Request.QueryString);
+            _log.LogInformation($"– API endpoint called - {path}");
         }
     }
 }
