@@ -7,28 +7,20 @@ using TestEstimateActual.IRepositories;
 using TestEstimateActual.Models;
 using Microsoft.AspNetCore.Http;
 using System.Web;
+using TestEstimateActual.Services;
 
 namespace TestEstimateActual.Controllers
 {
     [ApiController]
-    public class StatePopulationController : ControllerBase
+    public class PopulationHouseholdController : ControllerBase
     {
-        readonly ILogger<StatePopulationController> _log;
+        private readonly IPopulationHouseholdService _populationHouseholdService;
 
-        private readonly IActualRepository _actualRepository;
-        private readonly IEstimateRepository _estimateRepository;
-
-        public StatePopulationController(
-            IActualRepository actualRepository, 
-            IEstimateRepository estimateRepository,
-            ILogger<StatePopulationController> log)
+        public PopulationHouseholdController(IPopulationHouseholdService populationHouseholdService)
         {
-            _log = log;
-
-            this._actualRepository = actualRepository;
-            this._estimateRepository = estimateRepository;
+            this._populationHouseholdService = populationHouseholdService;
         }
-        
+
         [Route("/population")]
         [HttpGet]
         public IActionResult GetPopulationData(string state)
@@ -36,12 +28,12 @@ namespace TestEstimateActual.Controllers
             try
             {
                 // Logging
-                this._ApiRequestLogging(HttpContext);
+                this._populationHouseholdService._ApiRequestLogging(HttpContext);
                 // Get data
                 List<Actual> actuals;
                 List<Estimate> estimates;
                 bool isNotFound;
-                this.GetActualAndEstimateByStateIDs(state, out actuals, out estimates, out isNotFound);
+                this._populationHouseholdService.GetActualAndEstimateByStateIDs(state, out actuals, out estimates, out isNotFound);
                 if (isNotFound)
                 {
                     return NotFound();
@@ -76,12 +68,12 @@ namespace TestEstimateActual.Controllers
             try
             {
                 // Logging
-                this._ApiRequestLogging(HttpContext);
+                this._populationHouseholdService._ApiRequestLogging(HttpContext);
                 // Get data
                 List<Actual> actuals;
                 List<Estimate> estimates;
                 bool isNotFound;
-                this.GetActualAndEstimateByStateIDs(state, out actuals, out estimates, out isNotFound);
+                this._populationHouseholdService.GetActualAndEstimateByStateIDs(state, out actuals, out estimates, out isNotFound);
                 if (isNotFound)
                 {
                     return NotFound();
@@ -107,47 +99,6 @@ namespace TestEstimateActual.Controllers
             {
                 return StatusCode(500);
             }
-        }
-
-        private void GetActualAndEstimateByStateIDs(string state, out List<Actual> actuals, out List<Estimate> estimates, out bool isNotFound)
-        {
-            isNotFound = false;
-
-            // Trim
-            state = state.Trim();
-            // Remove all redundant commas
-            Regex regex = new Regex(@"\s");
-            state = regex.Replace(state, "");
-            // Separate
-            string[] stateIDsString = state.Split(',');
-            List<int> stateIDs = (from item in stateIDsString
-                                  select int.Parse(item)).ToList();
-            // List actuals
-            actuals = this._actualRepository.GetRecordByStateIDs(stateIDs);
-            List<int> actualsStateIDs = (from item in actuals
-                                         select item.State).ToList();
-            foreach (var item in actualsStateIDs)
-            {
-                stateIDs.Remove(item);
-            }
-            // List estimates
-            estimates = this._estimateRepository.GetRecordByStateIDs(stateIDs);
-            List<int> estimatesStateIDs = (from item in estimates
-                                           select item.State).ToList();
-            foreach (var item in estimatesStateIDs)
-            {
-                stateIDs.Remove(item);
-            }
-            if (stateIDs.Count != 0)
-            {
-                isNotFound = true;
-            }
-        }
-
-        private void _ApiRequestLogging(HttpContext httpContext)
-        {
-            var path = HttpUtility.UrlDecode(HttpContext.Request.Path + HttpContext.Request.QueryString);
-            _log.LogInformation($"– API endpoint called - {path}");
         }
     }
 }

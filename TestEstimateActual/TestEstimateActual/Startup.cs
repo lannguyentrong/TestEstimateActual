@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using TestEstimateActual.IRepositories;
 using TestEstimateActual.Models;
 using TestEstimateActual.Repositories;
+using TestEstimateActual.Services;
 
 namespace TestEstimateActual
 {
@@ -38,6 +39,7 @@ namespace TestEstimateActual
 
             services.AddScoped<IActualRepository, ActualRepository>();
             services.AddScoped<IEstimateRepository, EstimateRepository>();
+            services.AddScoped<IPopulationHouseholdService, PopulationHouseholdService>();
 
             services.AddSwaggerGen(c =>
             {
