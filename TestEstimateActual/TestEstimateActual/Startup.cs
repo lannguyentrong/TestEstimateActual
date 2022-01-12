@@ -32,7 +32,7 @@ namespace TestEstimateActual
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("TestEstimateActualConnectionString"));
+                options.UseSqlite(Configuration.GetConnectionString("TestEstimateActualConnectionString"));
             });
             services.AddControllers();
 

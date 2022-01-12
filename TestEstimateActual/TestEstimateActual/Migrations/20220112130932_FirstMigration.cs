@@ -10,9 +10,9 @@ namespace TestEstimateActual.Migrations
                 name: "Actuals",
                 columns: table => new
                 {
-                    State = table.Column<int>(type: "int", nullable: false),
-                    ActualPopulation = table.Column<int>(type: "int", nullable: false),
-                    ActualHouseholds = table.Column<int>(type: "int", nullable: false)
+                    State = table.Column<int>(type: "INTEGER", nullable: false),
+                    ActualPopulation = table.Column<int>(type: "INTEGER", nullable: false),
+                    ActualHouseholds = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -23,10 +23,10 @@ namespace TestEstimateActual.Migrations
                 name: "Estimates",
                 columns: table => new
                 {
-                    State = table.Column<int>(type: "int", nullable: false),
-                    District = table.Column<int>(type: "int", nullable: false),
-                    EstimatePopulation = table.Column<int>(type: "int", nullable: false),
-                    EstimateHouseholds = table.Column<int>(type: "int", nullable: false)
+                    State = table.Column<int>(type: "INTEGER", nullable: false),
+                    District = table.Column<int>(type: "INTEGER", nullable: false),
+                    EstimatePopulation = table.Column<int>(type: "INTEGER", nullable: false),
+                    EstimateHouseholds = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
