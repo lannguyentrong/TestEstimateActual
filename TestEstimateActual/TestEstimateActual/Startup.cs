@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using TestEstimateActual.IRepositories;
 using TestEstimateActual.Models;
 using TestEstimateActual.Repositories;
+using TestEstimateActual.Services;
 
 namespace TestEstimateActual
 {
@@ -31,13 +32,14 @@ namespace TestEstimateActual
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("TestEstimateActualConnectionString"));
+                options.UseSqlite(Configuration.GetConnectionString("TestEstimateActualConnectionString"));
             });
             services.AddControllers();
 
 
             services.AddScoped<IActualRepository, ActualRepository>();
             services.AddScoped<IEstimateRepository, EstimateRepository>();
+            services.AddScoped<IPopulationHouseholdService, PopulationHouseholdService>();
 
             services.AddSwaggerGen(c =>
             {

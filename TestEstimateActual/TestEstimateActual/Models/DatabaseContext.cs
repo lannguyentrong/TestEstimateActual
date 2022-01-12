@@ -29,7 +29,8 @@ namespace TestEstimateActual.Models
                    .AddJsonFile("appsettings.json")
                    .Build();
                 var connectionString = configuration.GetConnectionString("TestEstimateActualConnectionString");
-                optionsBuilder.UseSqlServer(connectionString);
+                //optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlite(connectionString);
             }
         }
 
